@@ -9,9 +9,10 @@
 
 using namespace std;
 
+template <typename T>
 class LinkedList {
     struct Node {
-        int data;
+        T data;
         Node *next;
     };
 
@@ -26,7 +27,7 @@ public:
     }
 
 public:
-    void add(const int input) {
+    void add(const T input) {
         Node *node = (Node *)malloc(sizeof(Node));
         Node *ptr = head;
 
@@ -42,7 +43,7 @@ public:
     int remove(const int index) {
         Node *ptr = head;
         Node *targetPtr = head;
-        int targetData;
+        T targetData;
 
         for (int i = 0; i < index; i++) {
             ptr = ptr->next;

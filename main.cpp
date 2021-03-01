@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
 
-    LinkedList list = LinkedList();
+    LinkedList list = LinkedList<int>();
     cout << list.toString() << endl;
     cout << "Length: " << list.length() << endl;
     list.add(0);
