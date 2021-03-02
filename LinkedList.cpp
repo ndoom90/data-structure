@@ -22,7 +22,7 @@ class LinkedList {
 
 public:
     LinkedList() {
-        head->next = NULL;
+        head->next = nullptr;
         head->data = NULL;
     }
 
@@ -31,18 +31,18 @@ public:
         Node *node = (Node *)malloc(sizeof(Node));
         Node *ptr = head;
 
-        while(ptr->next != NULL) {
+        while(ptr->next != nullptr) {
             ptr = ptr->next;
         }
 
         ptr->next = node;
         node->data = input;
-        node->next = NULL;
+        node->next = nullptr;
     }
 
     int remove(const int index) {
         Node *ptr = head;
-        Node *targetPtr = head;
+        Node *targetPtr;
         T targetData;
 
         for (int i = 0; i < index; i++) {
@@ -53,7 +53,6 @@ public:
         ptr->next = ptr->next->next;
 
         free(targetPtr);
-
         return targetData;
     }
 
@@ -61,19 +60,28 @@ public:
         Node *ptr = head;
         int cnt = 0;
 
-        while(ptr->next != NULL) {
+        while(ptr->next != nullptr) {
             ptr = ptr->next;
             cnt++;
         }
         return cnt;
     }
 
+    void clear() {
+        Node *ptr = head;
+        Node *targetPtr;
 
+        while (head->next != nullptr) {
+            targetPtr = ptr->next;
+            ptr->next = ptr->next->next;
+            free(targetPtr);
+        }
+    }
 
     string toString() {
         Node *ptr = head;
 
-        if (ptr->next == NULL) {
+        if (ptr->next == nullptr) {
             return "NULL";
         }
 
@@ -85,9 +93,11 @@ public:
                     result.append("->");
                 }
                 result.append(to_string(ptr->data));
-            } while(ptr->next != NULL);
+            } while(ptr->next != nullptr);
 
             return result;
         }
     }
+
+
 };
