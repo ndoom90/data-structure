@@ -4,10 +4,29 @@
 #include "LinkedList.cpp"
 #include "ArrayList.cpp"
 #include "Stack.cpp"
+#include "HashTable.cpp"
 
 using namespace std;
 
 int main() {
+    // Hash Table
+    HashTable hashTable = HashTable();
+
+    char key[7] = {'B', 'L', 'o', 'w', 'e', 's', 't'};
+    int value = 155;
+
+    cout << "Add key and value to hash table\n\n";
+    cout << "Key:" <<(string)key << '\n' << "Value: " << value << '\n\n';
+    if (hashTable.add(key, value)) cout << "Success" << "\n\n";
+    else cout << "Fail" << "\n\n";
+
+    cout << "Key:" <<(string)key << '\n' << "Value: " << value << '\n';
+    if (hashTable.add(key, value)) cout << "Success" << "\n\n";
+    else cout << "Fail" << "\n\n";
+
+    cout << "Get value by key\n\n";
+    cout << "Key:" <<(string)key << '\n';
+    cout << hashTable.getValue(key) << '\n';
 
 //    // Linked List
 //    LinkedList list = LinkedList<int>();
@@ -95,18 +114,18 @@ int main() {
 //    arrayList.add(2);
 //    cout << arrayList.toString() << endl;
 
-    // Stack
-    Stack stack = Stack<int>();
-
-    stack.push(0);
-//    cout << stack.length() << endl;
-    stack.push(1);
-//    cout << stack.length() << endl;
-
-    cout << stack.pop() << endl;
-//    cout << stack.length() << endl;
-    cout << stack.pop() << endl;
-//    cout << stack.length() << endl;
+//    // Stack
+//    Stack stack = Stack<int>();
+//
+//    stack.push(0);
+////    cout << stack.length() << endl;
+//    stack.push(1);
+////    cout << stack.length() << endl;
+//
+//    cout << stack.pop() << endl;
+////    cout << stack.length() << endl;
+//    cout << stack.pop() << endl;
+////    cout << stack.length() << endl;
 
     return 0;
 }
